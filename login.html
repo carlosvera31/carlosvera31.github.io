@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio de Sesión</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2>Inicio de Sesión</h2>
+    <form id="loginForm">
+      <input type="text" id="usuario" placeholder="Usuario" required>
+      <input type="password" id="contrasena" placeholder="Contraseña" required>
+      <button type="submit">Ingresar</button>
+      <p id="mensajeError" class="error"></p>
+    </form>
+  </div>
+  <script>
+    // Lista de usuarios y contraseñas (ejemplo simple)
+    const usuariosValidos = {
+      "7408074": "carlos2025",
+      "Miguela Vera": "12345",
+      "Usuario Fantasma": "12345"
+    };
+
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const usuario = document.getElementById("usuario").value.trim();
+      const contrasena = document.getElementById("contrasena").value.trim();
+
+      if (usuariosValidos[usuario] === contrasena) {
+        // Redirige a otra página si es correcto
+        window.location.href = "https://sites.google.com/view/capillasanroquequiindy-oficial/p%C3%A1gina-principal";
+      } else {
+        // Muestra mensaje de error
+        document.getElementById("mensajeError").textContent = "Usuario o contraseña incorrectos.";
+      }
+    });
+  </script>
+</body>
+</html>
+<link rel="stylesheet" href="estilos.css">
